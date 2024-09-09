@@ -55,7 +55,7 @@ const Login = () => {
         style={{
           fontSize: "2.5rem",
           textAlign: "center",
-          marginBottom: "1rem",
+          marginBottom:'.1rem',
           color: "black",
         }}
       >
@@ -157,30 +157,6 @@ const Login = () => {
             }}
           >
             Sign In
-          </button>
-          <button
-            type="button"
-            style={{
-              width: "100%",
-              padding: "0.8rem",
-              backgroundColor: "#fff",
-              border: "1px solid #ccc",
-              borderRadius: "5px",
-              fontSize: "1rem",
-              color: "#555",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "1rem",
-            }}
-          >
-            <img
-              src={GoogleLogo}
-              alt="Google logo"
-              style={{ width: "20px", marginRight: "0.5rem" }}
-            />
-            Sign In with Google
           </button>
         </form>
         <p style={{ textAlign: "center", fontSize: "0.9rem", color: "#555" }}>
