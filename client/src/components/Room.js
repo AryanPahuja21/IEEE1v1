@@ -147,7 +147,7 @@ const Room = () => {
         textAlign: "center", // Center text content
       }}
     >
-      <h1 style={{ marginTop: "2rem", color: "black" }}>
+      <h1 style={{ marginTop: "4rem", color: "black" }}>
         Hello, {gamer?.name}!
       </h1>
       {/* <h4 style={{ marginTop: "0rem", fontSize:"16px", fontWeight:"200",color: "black", }}>You are the host of the tournament</h4> */}
@@ -239,6 +239,8 @@ const Room = () => {
               fontFamily: "'Manrope', sans-serif",
               textDecoration: "none",
               color: "#fff",
+              position:'relative',
+              bottom:'4rem',
               fontSize: "18px",
               padding: "20px 45.5px 20px 45.5px",
               backgroundColor: "#6D31ED",
@@ -265,6 +267,8 @@ const Room = () => {
             style={{
               textDecoration: "none",
               color: "#6D31ED" /* Change text color to white */,
+              position:'relative',
+              bottom:'4rem',
               fontSize: "18px",
               padding: "20px 57.5px 20px 57.5px",
               backgroundColor: "#F5F1FE",

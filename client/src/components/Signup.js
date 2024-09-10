@@ -54,7 +54,7 @@ const Signup = () => {
         style={{
           fontSize: "2.5rem",
           textAlign: "center",
-          marginBottom: "1rem",
+          marginBottom: "-1.9rem",
           color: "black",
         }}
       >
@@ -64,7 +64,7 @@ const Signup = () => {
         style={{
           fontSize: "1rem",
           textAlign: "center",
-          marginBottom: "1.5rem",
+          marginTop: "2rem",
           color: "#555",
         }}
       >
