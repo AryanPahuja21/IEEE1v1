@@ -10,15 +10,6 @@ const NavBar = () => {
   const navigate = useNavigate(); // Get navigate function from react-router-dom
   const location = useLocation(); // Get the current location
 
-  useEffect(() => {
-    user = JSON.parse(localStorage.getItem("user"));
-    // Check if user data exists in context
-    if (!user) {
-      // If user data does not exist, redirect to login page
-      navigate("/login");
-    }
-  }, [user, navigate]);
-
   const handleLogout = () => {
     // Call logout function to clear user session data
     logout();
@@ -62,7 +53,7 @@ const NavBar = () => {
           <a>Logout</a>
         </button>
       )}
-    </div>    
+    </div>
   );
 };
 
