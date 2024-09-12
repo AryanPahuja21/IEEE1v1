@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import rounds from "../static_utils/problems.json";
 
 function Problem({ round_no }) {
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [score, setScore] = useState(null);
+
+  const handleOptionChange = (problemId, optionId) => {
+    setSelectedAnswers({
+      ...selectedAnswers,
+      [problemId]: optionId,
+    });
+  };
+
+  const handleSubmit = () => {
+    let correctAnswersCount = 0;
+
+    const currentRound = rounds.find((round) => round.round_id === round_no);
+
+    if (currentRound) {
+      currentRound.problems.forEach((problem) => {
+        const selectedOptionId = selectedAnswers[problem.id];
+        const correctOption = problem.options.find(
+          (option) => option.is_correct
+        );
+
+        if (correctOption && selectedOptionId === correctOption.option_id) {
+          correctAnswersCount += 1;
+        }
+      });
+
+      setScore(correctAnswersCount);
+    }
+  };
+
   return (
     <div
       style={{
@@ -16,7 +47,6 @@ function Problem({ round_no }) {
       }}
     >
       {rounds.map((round) => {
-        // Check if the current round matches the passed round_no
         if (round.round_id === round_no) {
           return (
             <div key={round.round_id}>
@@ -32,6 +62,9 @@ function Problem({ round_no }) {
                         id={`option_${problem.id}_${index}`}
                         name={problem.id}
                         value={option.option_id}
+                        onChange={() =>
+                          handleOptionChange(problem.id, option.option_id)
+                        }
                       />
                       <label htmlFor={`option_${problem.id}_${index}`}>
                         {option.code}
@@ -40,10 +73,11 @@ function Problem({ round_no }) {
                   ))}
                 </div>
               ))}
+              <button onClick={handleSubmit}>Submit</button>
             </div>
           );
         } else {
-          return null; // Return null if the round does not match
+          return null;
         }
       })}
     </div>
