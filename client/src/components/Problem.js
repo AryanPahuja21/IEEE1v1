@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import rounds from "../static_utils/problems.json";
 
-function Problem({ round_no }) {
+function Problem({ userID, round_no }) {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [score, setScore] = useState(null);
   const [submitted, setSubmitted] = useState(false);
@@ -34,8 +34,8 @@ function Problem({ round_no }) {
         const response = await axios.post(
           "https://code-1v1-tournament-platform-backend.vercel.app/api/tournament/match/submitCode",
           {
+            userID,
             correctAnswersCount,
-            submissionTime: new Date(),
           }
         );
       } catch (error) {

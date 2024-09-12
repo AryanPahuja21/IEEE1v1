@@ -47,13 +47,13 @@ exports.getProblemID = async (req, res) => {
 
 exports.submitCode = async (req, res) => {
   try {
-    const { correctAnswerCount, submissionTime } = req.body;
+    const { userID, correctAnswerCount } = req.body;
 
     const user = await User.findOne({ _id: userID });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    user.numberOfTestsPassed = passedTestcases;
+    user.numberOfTestsPassed = correctAnswerCount;
     user.submissionTime = new Date();
 
     await user.save();
