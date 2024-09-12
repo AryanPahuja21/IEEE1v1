@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import rounds from "../static_utils/problems.json";
+import axios from "axios";
 
 function Problem({ userID, round_no }) {
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -38,12 +39,16 @@ function Problem({ userID, round_no }) {
             correctAnswersCount,
           }
         );
+        console.log(response.data);
+
+        const { submitted } = response.data;
+
+        setSubmitted(submitted);
       } catch (error) {
         console.error("Error submitting:", error);
       }
 
       setScore(correctAnswersCount);
-      setSubmitted(true);
     }
   };
 
@@ -60,7 +65,7 @@ function Problem({ userID, round_no }) {
         boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.1)",
       }}
     >
-      {submitted ? (
+      {!submitted ? (
         <>
           {rounds.map((round) => {
             if (round.round_id === round_no) {

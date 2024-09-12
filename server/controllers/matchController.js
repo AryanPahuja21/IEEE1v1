@@ -55,10 +55,11 @@ exports.submitCode = async (req, res) => {
     }
     user.numberOfTestsPassed = correctAnswerCount;
     user.submissionTime = new Date();
+    user.submitted = true;
 
     await user.save();
 
-    res.status(200).json({ passedTestcases, totalTestcases });
+    res.status(200).json({ submitted });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
