@@ -6,7 +6,7 @@ function Problem({ round_no }) {
     <div
       style={{
         marginTop: "3rem",
-        fontFamily: "Arial, sans-serif",
+        fontFamily: "'Poppins', sans-serif",
         width: "80%",
         marginLeft: "auto",
         marginRight: "auto",

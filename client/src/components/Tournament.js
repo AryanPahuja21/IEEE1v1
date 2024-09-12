@@ -162,9 +162,9 @@ const Tournament = () => {
       alignItems: "center",
       justifyContent: "center",
       minHeight: "94.5vh",
-      background: "linear-gradient(135deg, #2980b9, #2c3e50)",
-      color: "#fff",
-      fontFamily: "'Roboto', sans-serif",
+      background: "linear-gradient(to bottom, #FFFFFF 0%, #999999 100%, #FFFFFF 100%)",
+      color: "black",
+      fontFamily: "'Poppins', sans-serif",
       padding: "20px",
       textAlign: "center"
     }}>
