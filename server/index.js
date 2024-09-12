@@ -39,6 +39,10 @@ mongoose
 
 const mutex = new Mutex();
 
+app.get("/", (req, res) => {
+  res.send("Welcome to IEEE 1v1 backend server");
+});
+
 // Routes for user authentication
 app.post("/api/auth/signup", async (req, res) => {
   const release = await mutex.acquire();
