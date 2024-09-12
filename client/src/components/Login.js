@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://code-1v1-tournament-platform-backend.vercel.app/api/auth/login",
+        `${process.env.SERVER_URL}/api/auth/login`,
         { email, password }
       );
       const userData = response.data;
@@ -55,7 +55,7 @@ const Login = () => {
         style={{
           fontSize: "2.5rem",
           textAlign: "center",
-          marginBottom:'.1rem',
+          marginBottom: ".1rem",
           color: "black",
         }}
       >

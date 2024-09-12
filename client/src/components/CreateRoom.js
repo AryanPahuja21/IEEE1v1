@@ -31,10 +31,11 @@ const CreateRoom = () => {
       return;
     }
     axios
-      .post(
-        "https://code-1v1-tournament-platform-backend.vercel.app/api/rooms/create",
-        { roomName, userName, userID }
-      )
+      .post(`${process.env.SERVER_URL}/api/rooms/create`, {
+        roomName,
+        userName,
+        userID,
+      })
       .then((response) => {
         // Redirect to room page
         navigate(`/room/${response.data.roomId}`); // Use navigate function to redirect
@@ -77,7 +78,13 @@ const CreateRoom = () => {
       <div style={{ marginBottom: "1rem" }}>
         <label
           htmlFor="roomName"
-          style={{ color: "black", fontSize: "1.25rem", marginLeft: "0.25rem", display: "block", fontFamily: "Manrope, sans-serif" }}
+          style={{
+            color: "black",
+            fontSize: "1.25rem",
+            marginLeft: "0.25rem",
+            display: "block",
+            fontFamily: "Manrope, sans-serif",
+          }}
         >
           Room Name
         </label>
@@ -107,7 +114,12 @@ const CreateRoom = () => {
       <div style={{ marginBottom: "1rem" }}>
         <label
           htmlFor="userName"
-          style={{ color: "black", fontSize: "1.25rem", marginLeft: "0.25rem", display: "block" }}
+          style={{
+            color: "black",
+            fontSize: "1.25rem",
+            marginLeft: "0.25rem",
+            display: "block",
+          }}
         >
           Your Name
         </label>

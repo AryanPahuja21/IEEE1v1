@@ -33,7 +33,7 @@ function Problem({ userID, round_no }) {
 
       try {
         const response = await axios.post(
-          "https://code-1v1-tournament-platform-backend.vercel.app/api/tournament/match/submitCode",
+          `${process.env.SERVER_URL}/api/tournament/match/submitCode`,
           {
             userID,
             correctAnswersCount,
