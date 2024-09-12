@@ -13,7 +13,7 @@ function Problem({ round_no }) {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     let correctAnswersCount = 0;
 
     const currentRound = rounds.find((round) => round.round_id === round_no);
@@ -29,6 +29,18 @@ function Problem({ round_no }) {
           correctAnswersCount += 1;
         }
       });
+
+      try {
+        const response = await axios.post(
+          "https://code-1v1-tournament-platform-backend.vercel.app/api/tournament/match/submitCode",
+          {
+            correctAnswersCount,
+            submissionTime: new Date(),
+          }
+        );
+      } catch (error) {
+        console.error("Error submitting:", error);
+      }
 
       setScore(correctAnswersCount);
       setSubmitted(true);
