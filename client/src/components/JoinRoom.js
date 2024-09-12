@@ -31,7 +31,7 @@ const JoinRoom = () => {
       return;
     }
     axios
-      .post(`${process.env.SERVER_URL}/api/rooms/join`, {
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/rooms/join`, {
         roomId,
         userName,
         userID,

@@ -27,7 +27,7 @@ const Round = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `${process.env.SERVER_URL}/api/tournament/getTournamentDetails`,
+            `${process.env.REACT_APP_SERVER_URL}/api/tournament/getTournamentDetails`,
             { params: { roomId } }
           );
           const { Players, roundNo, Admin, isResultCalculated } = response.data;
@@ -60,7 +60,7 @@ const Round = () => {
     const fetchTime = async () => {
       try {
         const response = await axios.get(
-          `${process.env.SERVER_URL}/api/tournament/getTime`,
+          `${process.env.REACT_APP_SERVER_URL}/api/tournament/getTime`,
           { params: { roomId } }
         );
         const { startTime } = response.data;
@@ -75,7 +75,7 @@ const Round = () => {
           if (!resultCalculated) {
             try {
               await axios.post(
-                `${process.env.SERVER_URL}/api/tournament/match/calculateResult`,
+                `${process.env.REACT_APP_SERVER_URL}/api/tournament/match/calculateResult`,
                 { roomId }
               );
               setResultCalculated(true);

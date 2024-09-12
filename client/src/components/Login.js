@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${process.env.SERVER_URL}/api/auth/login`,
+        `${process.env.REACT_APP_SERVER_URL}/api/auth/login`,
         { email, password }
       );
       const userData = response.data;

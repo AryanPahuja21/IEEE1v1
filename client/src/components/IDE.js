@@ -21,7 +21,7 @@ const IDE = ({ userID, problemID }) => {
         try {
           // Send script, language, userID, and problemID to backend
           const response = await axios.post(
-            `${process.env.SERVER_URL}/api/tournament/match/submitCode`,
+            `${process.env.REACT_APP_SERVER_URL}/api/tournament/match/submitCode`,
             {
               script,
               language,

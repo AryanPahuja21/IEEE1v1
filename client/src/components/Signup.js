@@ -22,7 +22,7 @@ const Signup = () => {
   const handleSignup = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
     axios
-      .post(`${process.env.SERVER_URL}/api/auth/signup`, {
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/auth/signup`, {
         name,
         email,
         password,

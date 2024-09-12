@@ -31,7 +31,7 @@ const CreateRoom = () => {
       return;
     }
     axios
-      .post(`${process.env.SERVER_URL}/api/rooms/create`, {
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/rooms/create`, {
         roomName,
         userName,
         userID,

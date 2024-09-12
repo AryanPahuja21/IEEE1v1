@@ -33,7 +33,7 @@ function Problem({ userID, round_no }) {
 
       try {
         const response = await axios.post(
-          `${process.env.SERVER_URL}/api/tournament/match/submitCode`,
+          `${process.env.REACT_APP_SERVER_URL}/api/tournament/match/submitCode`,
           {
             userID,
             correctAnswersCount,
