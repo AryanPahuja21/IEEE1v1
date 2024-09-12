@@ -94,7 +94,7 @@ const Round = () => {
       minHeight: "94.5vh",
       background: "linear-gradient(135deg, #2980b9, #2c3e50)",
       color: "#fff",
-      fontFamily: "'Roboto', sans-serif",
+      fontFamily: "'Poppins', sans-serif",
       padding: "20px",
       textAlign: "center"
     }}>

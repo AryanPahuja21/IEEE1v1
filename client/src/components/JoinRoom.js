@@ -52,9 +52,9 @@ const JoinRoom = () => {
       alignItems: "center",
       justifyContent: "center",
       minHeight: "95.5vh", /* Changed height to minHeight for responsiveness */
-      background: "linear-gradient(135deg, #2980b9, #2c3e50)",
-      color: "#fff",
-      fontFamily: "'Roboto', sans-serif",
+      background: "linear-gradient(to bottom, #FFFFFF 0%, #999999 100%, #FFFFFF 100%)",
+      color: "black",
+      fontFamily: "'Poppins', sans-serif",
       paddingBottom: "2rem" /* Added padding bottom for spacing */
     }}>
       <h1 style={{ 
@@ -64,7 +64,7 @@ const JoinRoom = () => {
         marginBottom: "4rem",
         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)"
       }}>Join Room</h1>
-      <div style={{ marginBottom: "1rem" }}>
+      <div style={{ marginBottom: "1rem" ,position:'relative',left:'14px'}}>
         <label htmlFor="roomId" style={{ color: "#fff", fontSize: "1.5rem", marginBottom: "0.5rem"}}>Room ID: &nbsp;</label>
         <input
           type="text"
