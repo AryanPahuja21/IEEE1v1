@@ -4,6 +4,7 @@ import rounds from "../static_utils/problems.json";
 function Problem({ round_no }) {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [score, setScore] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleOptionChange = (problemId, optionId) => {
     setSelectedAnswers({
@@ -30,6 +31,7 @@ function Problem({ round_no }) {
       });
 
       setScore(correctAnswersCount);
+      setSubmitted(true);
     }
   };
 
@@ -46,40 +48,50 @@ function Problem({ round_no }) {
         boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.1)",
       }}
     >
-      {rounds.map((round) => {
-        if (round.round_id === round_no) {
-          return (
-            <div key={round.round_id}>
-              {round.problems.map((problem) => (
-                <div key={problem.id}>
-                  <h2>{problem.title}</h2>
-                  <p>{problem.description}</p>
-                  <p>Difficulty: {problem.difficulty}</p>
-                  {problem.options.map((option, index) => (
-                    <div key={index}>
-                      <input
-                        type="radio"
-                        id={`option_${problem.id}_${index}`}
-                        name={problem.id}
-                        value={option.option_id}
-                        onChange={() =>
-                          handleOptionChange(problem.id, option.option_id)
-                        }
-                      />
-                      <label htmlFor={`option_${problem.id}_${index}`}>
-                        {option.code}
-                      </label>
+      {submitted ? (
+        <>
+          {rounds.map((round) => {
+            if (round.round_id === round_no) {
+              return (
+                <div key={round.round_id}>
+                  {round.problems.map((problem) => (
+                    <div key={problem.id}>
+                      <h2>{problem.title}</h2>
+                      <p>{problem.description}</p>
+                      <p>Difficulty: {problem.difficulty}</p>
+                      {problem.options.map((option, index) => (
+                        <div key={index}>
+                          <input
+                            type="radio"
+                            id={`option_${problem.id}_${index}`}
+                            name={problem.id}
+                            value={option.option_id}
+                            onChange={() =>
+                              handleOptionChange(problem.id, option.option_id)
+                            }
+                          />
+                          <label htmlFor={`option_${problem.id}_${index}`}>
+                            {option.code}
+                          </label>
+                        </div>
+                      ))}
                     </div>
                   ))}
+                  <button onClick={handleSubmit}>Submit</button>
                 </div>
-              ))}
-              <button onClick={handleSubmit}>Submit</button>
-            </div>
-          );
-        } else {
-          return null;
-        }
-      })}
+              );
+            } else {
+              return null;
+            }
+          })}
+        </>
+      ) : (
+        <p>
+          {" "}
+          Thank you for submitting your answers! Wait for others to finish the
+          round.
+        </p>
+      )}
     </div>
   );
 }
