@@ -47,43 +47,7 @@ exports.getProblemID = async (req, res) => {
 
 exports.submitCode = async (req, res) => {
   try {
-    const { script, language, userID, problemID } = req.body;
-
-    let passedTestcases = 0;
-    let totalTestcases = 0;
-
-    // Fetch test case headers
-    const headerResponse = await fetch(
-      `https://judgedat.u-aizu.ac.jp/testcases/${problemID}/header`
-    );
-    const headerData = await headerResponse.json();
-    const headers = headerData.headers;
-
-    // Iterate over test case headers
-    for (const header of headers) {
-      const serial = header.serial;
-      totalTestcases++;
-
-      // Fetch test case data
-      const testCaseResponse = await fetch(
-        `https://judgedat.u-aizu.ac.jp/testcases/${problemID}/${serial}`
-      );
-      const testCaseData = await testCaseResponse.json();
-      const input = testCaseData.in.trim(); // Trim input to remove extra spaces and newlines
-      const expectedOutput = testCaseData.out.trim(); // Trim expected output
-
-      // Execute the code with current test case input
-      try {
-        const actualOutput = await executeCode(script, language, input);
-        // Compare actual output with expected output
-        if (actualOutput === expectedOutput) {
-          passedTestcases++;
-        }
-      } catch (error) {
-        console.error("Error executing code:", error);
-        // Handle execution errors, maybe mark the test case as failed
-      }
-    }
+    const { correctAnswerCount, submissionTime } = req.body;
 
     const user = await User.findOne({ _id: userID });
     if (!user) {
