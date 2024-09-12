@@ -59,7 +59,7 @@ exports.submitCode = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({ submitted });
+    res.status(200).json({ submitted: true });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });

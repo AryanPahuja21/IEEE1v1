@@ -29,7 +29,7 @@ const Tournament = () => {
           navigate("/login");
         }
         const response = await axios.get(
-          `${process.env.SERVER_URL}/api/tournament/getTournamentDetails`,
+          `${process.env.REACT_APP_SERVER_URL}/api/tournament/getTournamentDetails`,
           { params: { roomId } }
         );
         const {
@@ -110,10 +110,13 @@ const Tournament = () => {
 
   const leaveTournament = async () => {
     await axios
-      .post(`${process.env.SERVER_URL}/api/tournament/leaveTournament`, {
-        roomId,
-        userID,
-      })
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/api/tournament/leaveTournament`,
+        {
+          roomId,
+          userID,
+        }
+      )
       .then((response) => {
         navigate(`/room/${roomId}`);
       })
@@ -128,9 +131,12 @@ const Tournament = () => {
       return;
     }
     await axios
-      .post(`${process.env.SERVER_URL}/api/tournament/endTournament`, {
-        roomId,
-      })
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/api/tournament/endTournament`,
+        {
+          roomId,
+        }
+      )
       .then((response) => {
         navigate(`/room/${roomId}`);
       })
@@ -145,7 +151,9 @@ const Tournament = () => {
       return;
     }
     await axios
-      .post(`${process.env.SERVER_URL}/api/tournament/startRound`, { roomId })
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/tournament/startRound`, {
+        roomId,
+      })
       .then((response) => {
         if (isPlaying) navigate(`/room/${roomId}/tournament/round`); // Use navigate function to redirect
       })
@@ -168,9 +176,12 @@ const Tournament = () => {
       return;
     }
     await axios
-      .post(`${process.env.SERVER_URL}/api/tournament/declareResult`, {
-        roomId,
-      })
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/api/tournament/declareResult`,
+        {
+          roomId,
+        }
+      )
       .then((response) => {
         navigate(`/room/${roomId}/tournament/finalresult`); // Use navigate function to redirect
       })

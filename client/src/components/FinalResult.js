@@ -24,7 +24,7 @@ const FinalResult = () => {
           navigate("/login");
         }
         const response = await axios.get(
-          `${process.env.SERVER_URL}/api/tournament/getTournamentDetails`,
+          `${process.env.REACT_APP_SERVER_URL}/api/tournament/getTournamentDetails`,
           { params: { roomId } }
         );
         const { OldPlayers, Players, Admin } = response.data;
@@ -45,7 +45,7 @@ const FinalResult = () => {
     const checkEnd = async () => {
       try {
         const response = await axios.get(
-          `${process.env.SERVER_URL}/api/tournament/getTournamentDetails`,
+          `${process.env.REACT_APP_SERVER_URL}/api/tournament/getTournamentDetails`,
           { params: { roomId } }
         );
         const { isRunning } = response.data;
@@ -91,10 +91,13 @@ const FinalResult = () => {
 
   const leaveTournament = () => {
     axios
-      .post(`${process.env.SERVER_URL}/api/tournament/leaveTournament`, {
-        roomId,
-        userID,
-      })
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/api/tournament/leaveTournament`,
+        {
+          roomId,
+          userID,
+        }
+      )
       .then((response) => {
         navigate(`/room/${roomId}`);
       })
@@ -105,9 +108,12 @@ const FinalResult = () => {
 
   const endTournament = () => {
     axios
-      .post(`${process.env.SERVER_URL}/api/tournament/endTournament`, {
-        roomId,
-      })
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/api/tournament/endTournament`,
+        {
+          roomId,
+        }
+      )
       .then((response) => {
         navigate(`/room/${roomId}`);
       })

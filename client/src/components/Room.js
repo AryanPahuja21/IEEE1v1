@@ -29,7 +29,7 @@ const Room = () => {
           navigate("/login");
         }
         const response = await axios.get(
-          `${process.env.SERVER_URL}/api/rooms/getRoomDetails`,
+          `${process.env.REACT_APP_SERVER_URL}/api/rooms/getRoomDetails`,
           { params: { roomId } }
         );
         const { name, admin, participants, isStarted, players } =
@@ -71,7 +71,10 @@ const Room = () => {
 
   const handleLeaveRoom = () => {
     axios
-      .post(`${process.env.SERVER_URL}/api/rooms/leave`, { roomId, userID })
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/rooms/leave`, {
+        roomId,
+        userID,
+      })
       .then((response) => {
         // console.log(response.data);
         // console.log("joining room");
@@ -86,7 +89,7 @@ const Room = () => {
 
   const handleDeleteRoom = () => {
     axios
-      .delete(`${process.env.SERVER_URL}/api/rooms/deleteRoom`, {
+      .delete(`${process.env.REACT_APP_SERVER_URL}/api/rooms/deleteRoom`, {
         data: { roomId },
       })
       .then((response) => {
@@ -104,9 +107,12 @@ const Room = () => {
       return;
     }
     axios
-      .post(`${process.env.SERVER_URL}/api/tournament/startTournament`, {
-        roomId,
-      })
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/api/tournament/startTournament`,
+        {
+          roomId,
+        }
+      )
       .then((response) => {
         navigate(`/room/${roomId}/tournament`); // Use navigate function to redirect
       })

@@ -17,6 +17,7 @@ const Round = React.lazy(() => import("./components/Round"));
 const FinalResult = React.lazy(() => import("./components/FinalResult"));
 
 function App() {
+  console.log("URL", process.env.REACT_APP_SERVER_URL);
   return (
     <AuthProvider>
       <Router>
@@ -35,7 +36,10 @@ function App() {
             <Route path="/room/:roomId/tournament" element={<Tournament />} />
             <Route path="/room/:roomId/tournament/round" element={<Round />} />
             <Route path="/room/:roomId/tournament/match" element={<Match />} />
-            <Route path="/room/:roomId/tournament/finalresult" element={<FinalResult />} />
+            <Route
+              path="/room/:roomId/tournament/finalresult"
+              element={<FinalResult />}
+            />
           </Routes>
         </Suspense>
       </Router>

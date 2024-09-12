@@ -11,7 +11,7 @@ const Result = ({ roomId, rnd }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.SERVER_URL}/api/tournament/getTournamentDetails`,
+          `${process.env.REACT_APP_SERVER_URL}/api/tournament/getTournamentDetails`,
           { params: { roomId } }
         );
         const { OldPlayers, Players } = response.data;
