@@ -90,34 +90,26 @@ const Round = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "94.5vh",
-        background: "linear-gradient(135deg, #2980b9, #2c3e50)",
-        color: "#fff",
-        fontFamily: "'Roboto', sans-serif",
-        padding: "20px",
-        textAlign: "center",
-      }}
-    >
-      <div>{rnd && <h1>Round No. - {rnd}</h1>}</div>
-      <div>{gamer && <h1>All the best, {gamer?.name}!</h1>}</div>
-      <div
-        style={{
-          fontSize: "24px",
-          fontWeight: "bold",
-          color: "#ff4f58",
-          padding: "10px",
-        }}
-      >
-        <p>
-          Match will start in : {timeLeft} seconds (Time changes every 2
-          seconds)
-        </p>
+    <div style={{ 
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "94.5vh",
+      background: "linear-gradient(135deg, #2980b9, #2c3e50)",
+      color: "#fff",
+      fontFamily: "'Poppins', sans-serif",
+      padding: "20px",
+      textAlign: "center"
+    }}>
+      <div>
+        {rnd && <h1>Round No. - {rnd}</h1>}
+      </div>
+      <div>
+        {gamer && <h1>All the best, {gamer?.name}!</h1>}
+      </div>
+      <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#ff4f58', padding: '10px' }}>
+        <p>Match will start in : {timeLeft} seconds (Time changes every 2 seconds)</p>
       </div>
       <div>
         <h2>1v1 Matches:</h2>
