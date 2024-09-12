@@ -47,54 +47,19 @@ exports.getProblemID = async (req, res) => {
 
 exports.submitCode = async (req, res) => {
   try {
-    const { script, language, userID, problemID } = req.body;
-
-    let passedTestcases = 0;
-    let totalTestcases = 0;
-
-    // Fetch test case headers
-    const headerResponse = await fetch(
-      `https://judgedat.u-aizu.ac.jp/testcases/${problemID}/header`
-    );
-    const headerData = await headerResponse.json();
-    const headers = headerData.headers;
-
-    // Iterate over test case headers
-    for (const header of headers) {
-      const serial = header.serial;
-      totalTestcases++;
-
-      // Fetch test case data
-      const testCaseResponse = await fetch(
-        `https://judgedat.u-aizu.ac.jp/testcases/${problemID}/${serial}`
-      );
-      const testCaseData = await testCaseResponse.json();
-      const input = testCaseData.in.trim(); // Trim input to remove extra spaces and newlines
-      const expectedOutput = testCaseData.out.trim(); // Trim expected output
-
-      // Execute the code with current test case input
-      try {
-        const actualOutput = await executeCode(script, language, input);
-        // Compare actual output with expected output
-        if (actualOutput === expectedOutput) {
-          passedTestcases++;
-        }
-      } catch (error) {
-        console.error("Error executing code:", error);
-        // Handle execution errors, maybe mark the test case as failed
-      }
-    }
+    const { userID, correctAnswerCount } = req.body;
 
     const user = await User.findOne({ _id: userID });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    user.numberOfTestsPassed = passedTestcases;
+    user.numberOfTestsPassed = correctAnswerCount;
     user.submissionTime = new Date();
+    user.submitted = true;
 
     await user.save();
 
-    res.status(200).json({ passedTestcases, totalTestcases });
+    res.status(200).json({ submitted: true });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });

@@ -29,7 +29,7 @@ const Room = () => {
           navigate("/login");
         }
         const response = await axios.get(
-          "https://code-1v1-tournament-platform-backend.vercel.app/api/rooms/getRoomDetails",
+          `${process.env.REACT_APP_SERVER_URL}/api/rooms/getRoomDetails`,
           { params: { roomId } }
         );
         const { name, admin, participants, isStarted, players } =
@@ -71,10 +71,10 @@ const Room = () => {
 
   const handleLeaveRoom = () => {
     axios
-      .post(
-        "https://code-1v1-tournament-platform-backend.vercel.app/api/rooms/leave",
-        { roomId, userID }
-      )
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/rooms/leave`, {
+        roomId,
+        userID,
+      })
       .then((response) => {
         // console.log(response.data);
         // console.log("joining room");
@@ -89,10 +89,9 @@ const Room = () => {
 
   const handleDeleteRoom = () => {
     axios
-      .delete(
-        "https://code-1v1-tournament-platform-backend.vercel.app/api/rooms/deleteRoom",
-        { data: { roomId } }
-      )
+      .delete(`${process.env.REACT_APP_SERVER_URL}/api/rooms/deleteRoom`, {
+        data: { roomId },
+      })
       .then((response) => {
         navigate(`/home`); // Use navigate function to redirect
       })
@@ -109,8 +108,10 @@ const Room = () => {
     }
     axios
       .post(
-        "https://code-1v1-tournament-platform-backend.vercel.app/api/tournament/startTournament",
-        { roomId }
+        `${process.env.REACT_APP_SERVER_URL}/api/tournament/startTournament`,
+        {
+          roomId,
+        }
       )
       .then((response) => {
         navigate(`/room/${roomId}/tournament`); // Use navigate function to redirect
@@ -239,8 +240,8 @@ const Room = () => {
               fontFamily: "'Manrope', sans-serif",
               textDecoration: "none",
               color: "#fff",
-              position:'relative',
-              bottom:'4rem',
+              position: "relative",
+              bottom: "4rem",
               fontSize: "18px",
               padding: "20px 45.5px 20px 45.5px",
               backgroundColor: "#6D31ED",
@@ -267,8 +268,8 @@ const Room = () => {
             style={{
               textDecoration: "none",
               color: "#6D31ED" /* Change text color to white */,
-              position:'relative',
-              bottom:'4rem',
+              position: "relative",
+              bottom: "4rem",
               fontSize: "18px",
               padding: "20px 57.5px 20px 57.5px",
               backgroundColor: "#F5F1FE",
@@ -281,7 +282,7 @@ const Room = () => {
               display: "inline-block",
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = "#F5F1FE"; 
+              e.target.style.backgroundColor = "#F5F1FE";
               e.target.style.transform = "scale(1.05)";
             }}
             onMouseLeave={(e) => {

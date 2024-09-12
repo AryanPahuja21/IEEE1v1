@@ -27,7 +27,7 @@ const Round = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            "https://code-1v1-tournament-platform-backend.vercel.app/api/tournament/getTournamentDetails",
+            `${process.env.REACT_APP_SERVER_URL}/api/tournament/getTournamentDetails`,
             { params: { roomId } }
           );
           const { Players, roundNo, Admin, isResultCalculated } = response.data;
@@ -60,7 +60,7 @@ const Round = () => {
     const fetchTime = async () => {
       try {
         const response = await axios.get(
-          "https://code-1v1-tournament-platform-backend.vercel.app/api/tournament/getTime",
+          `${process.env.REACT_APP_SERVER_URL}/api/tournament/getTime`,
           { params: { roomId } }
         );
         const { startTime } = response.data;
@@ -75,7 +75,7 @@ const Round = () => {
           if (!resultCalculated) {
             try {
               await axios.post(
-                "https://code-1v1-tournament-platform-backend.vercel.app/api/tournament/match/calculateResult",
+                `${process.env.REACT_APP_SERVER_URL}/api/tournament/match/calculateResult`,
                 { roomId }
               );
               setResultCalculated(true);
@@ -158,7 +158,7 @@ const Round = () => {
 
       <div style={{ display: "flex", width: "100%" }}>
         <div style={{ flex: 1 }}>
-          <Problem round_no={rnd} />
+          <Problem userID={userID} round_no={rnd} />
         </div>
       </div>
     </div>
