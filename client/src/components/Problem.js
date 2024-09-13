@@ -94,7 +94,7 @@ function Problem({ userID, round_no }) {
                       ))}
                     </div>
                   ))}
-                  <button onClick={handleSubmit} style={{backgroundColor:'black',color:'white',marginTop:'12px',marginLeft:'30px'}}>Submit</button>
+                  <button onClick={handleSubmit} style={{backgroundColor:'black',color:'white',marginTop:'12px',marginLeft:'430px',borderRadius:'6px',height:'40px',width:'80px',cursor:'pointer'}}>Submit</button>
                 </div>
               );
             } else {

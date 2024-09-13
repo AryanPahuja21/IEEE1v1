@@ -52,6 +52,7 @@ const CreateRoom = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        width:'100vw',
         justifyContent: "center",
         minHeight:
           "95.5vh" /* Changed height to minHeight for responsiveness */,
@@ -67,10 +68,10 @@ const CreateRoom = () => {
           fontSize: "52px ",
           fontWeight: "bold",
           textAlign: "center",
-          marginBottom: "5rem",
+          marginBottom: "3rem",
           // textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
           color: "black",
-          fontFamily: "'Lexend', system-ui",
+          fontFamily: "'Poppins', system-ui",
         }}
       >
         Create Room
@@ -104,7 +105,7 @@ const CreateRoom = () => {
             fontSize: "1.2rem",
             backgroundColor:
               "rgba(255, 255, 255, 0.1)" /* Added background color with transparency */,
-            color: "#fff" /* Added text color */,
+            color: "black" /* Added text color */,
             outline: "none" /* Removed outline */,
             transition:
               "border-color 0.3s ease, background-color 0.3s ease" /* Added transition */,
@@ -139,7 +140,7 @@ const CreateRoom = () => {
             fontSize: "1.2rem",
             backgroundColor:
               "rgba(255, 255, 255, 0.1)" /* Added background color with transparency */,
-            color: "#fff" /* Added text color */,
+            color: "black" /* Added text color */,
             outline: "none" /* Removed outline */,
             transition:
               "border-color 0.3s ease, background-color 0.3s ease" /* Added transition */,
