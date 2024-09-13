@@ -69,7 +69,7 @@ const JoinRoom = () => {
         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)"
       }}>Join Room</h1>
       <div style={{ marginBottom: "1rem" ,position:'relative',left:'14px'}}>
-        <label htmlFor="roomId" style={{ color: "#fff", fontSize: "1.5rem", marginBottom: "0.5rem"}}>Room ID: &nbsp;</label>
+        <label htmlFor="roomId" style={{ color: "black", fontSize: "1.5rem", marginBottom: "0.5rem"}}>Room ID: &nbsp;</label>
         <input
           type="text"
           id="roomId"
@@ -84,7 +84,7 @@ const JoinRoom = () => {
             fontSize: "1.2rem",
             backgroundColor:
               "rgba(255, 255, 255, 0.1)" /* Added background color with transparency */,
-            color: "#fff" /* Added text color */,
+            color: "black" /* Added text color */,
             outline: "none" /* Removed outline */,
             transition:
               "border-color 0.3s ease, background-color 0.3s ease" /* Added transition */,
@@ -94,7 +94,7 @@ const JoinRoom = () => {
       <div style={{ marginBottom: "1rem" }}>
         <label
           htmlFor="userName"
-          style={{ color: "#fff", fontSize: "1.5rem", marginBottom: "0.5rem" }}
+          style={{ color: "black", fontSize: "1.5rem", marginBottom: "0.5rem" }}
         >
           Your Name: &nbsp;
         </label>
@@ -112,7 +112,7 @@ const JoinRoom = () => {
             fontSize: "1.2rem",
             backgroundColor:
               "rgba(255, 255, 255, 0.1)" /* Added background color with transparency */,
-            color: "#fff" /* Added text color */,
+            color: "black" /* Added text color */,
             outline: "none" /* Removed outline */,
             transition:
               "border-color 0.3s ease, background-color 0.3s ease" /* Added transition */,
