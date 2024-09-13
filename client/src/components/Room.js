@@ -102,7 +102,7 @@ const Room = () => {
   };
 
   const startTournament = () => {
-    if (participants.length == 1) {
+    if (participants.length === 1) {
       alert("You need atleast 2 players!");
       return;
     }
