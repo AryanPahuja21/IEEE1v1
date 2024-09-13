@@ -17,7 +17,6 @@ const Round = React.lazy(() => import("./components/Round"));
 const FinalResult = React.lazy(() => import("./components/FinalResult"));
 
 function App() {
-  console.log("URL", process.env.REACT_APP_SERVER_URL);
   return (
     <AuthProvider>
       <Router>
