@@ -50,7 +50,7 @@ const Tournament = () => {
           return;
         }
 
-        if (Players.length == 1) {
+        if (Players.length === 1) {
           navigate(`/room/${roomId}/tournament/finalresult`);
           return;
         }
