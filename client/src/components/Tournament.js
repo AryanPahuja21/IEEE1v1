@@ -243,7 +243,7 @@ const Tournament = () => {
                       style={{
                         marginBottom: "5px",
                         padding: "10px",
-                        background: "#34495e",
+                        background: "white",
                         borderRadius: "4px",
                       }}
                     >
@@ -280,7 +280,7 @@ const Tournament = () => {
                       style={{
                         marginBottom: "5px",
                         padding: "10px",
-                        background: "#34495e",
+                        background: "rgb(152 201 249)",
                         borderRadius: "4px",
                       }}
                     >
@@ -324,7 +324,7 @@ const Tournament = () => {
                     style={{
                       marginBottom: "5px",
                       padding: "10px",
-                      background: "#34495e",
+                      background: "white",
                       borderRadius: "4px",
                     }}
                   >
@@ -361,7 +361,7 @@ const Tournament = () => {
                     style={{
                       marginBottom: "5px",
                       padding: "10px",
-                      background: "#34495e",
+                      background: "rgb(152 201 249)",
                       borderRadius: "4px",
                     }}
                   >
